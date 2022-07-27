@@ -1,0 +1,162 @@
+.header {
+    margin: 10px 0 10px 0;
+    height: 149px;
+    position: absolute;
+    z-index: 10;
+    border-top:5px solid orange;
+    border-bottom: 1px solid orange;
+   width: 21cm;
+    /* background-color: lightgray; */
+
+
+}
+
+/* .form-control{
+    background: none;
+    border: none;
+} */
+.main{
+    margin: 0;
+    padding: 0;
+}
+.pic {
+    width: 119px;
+    height: 119px;
+    border-radius: 150px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+.pic-container {
+    display: inline-block;
+    margin-top: 97px;
+    margin-left: 40px;
+    z-index: 12;
+    position: absolute;
+}
+.tittle{
+    margin-left: 2.6rem;
+    text-align-last: end;
+}
+.name{
+    font-size: 3rem;
+}
+.name b{
+    font-size: 2.3rem;
+}
+.name::after{
+    content: "";
+    display: block;
+    font-style: normal;
+    font-size: smaller;
+    margin-bottom: -85px;
+   
+}
+.tittle span{
+    margin: 0;
+    padding: 0;
+   text-align: right;
+}
+#post{
+    color: gray;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+.details{
+    
+    padding: 0;
+    /* margin-top: 0.8rem; */
+    font-size: 0.8rem;
+    align-content: center;
+    align-items: center;
+    /* padding: 10px 20px 10px 10px; */
+}
+.icon{
+    min-width: 1rem;
+    margin-top: 0.3rem;
+}
+.colon{
+    margin-left: 0.8rem;
+    margin-top: 0.3rem;
+}
+.addEdit{
+    margin-top: 0.5rem;
+}
+.userDetails{
+    margin-left: 0.5rem;
+}
+.line{
+    /* margin-left: 2rem; */
+    filter: opacity(0.5) drop-shadow(0 0 0 yellow) ;
+}
+.lineImage{
+    margin: 0;
+    padding: 0;
+    width: 3%;
+}
+
+@media print {
+    .name{
+        font-size: 1.7rem;
+    }
+    .name::after{
+        content: "";
+        margin-bottom: -52px;
+    }
+    #post{
+        margin-bottom: 1rem;
+        /* margin-left: 4.9rem; */
+        font-size: 1.3rem;
+    }
+    .col-sm-10{
+       
+        float: left;
+        width: 64%;
+       
+    }
+    .col-md-1{
+        float: left;
+        width: 1%;
+    }
+    .col-md-4{
+        float: left;
+        font-size: small;
+        width: 33%;
+       
+    }
+   
+    .tittle{
+        margin-left: 0;
+        margin-top: 0.8rem;
+        /* text-align-last: center; */
+    }
+    .row{
+        padding-top: 1rem;
+        float: left;
+        min-width: 100%;
+    }
+    .pic-container{
+        margin-bottom: 1rem;
+    }
+    .pic{
+        margin-left: 1rem;
+        margin-top: -0.7rem;
+        width: 129px;
+        height: 129px;
+    }
+    .header{
+        width: 22cm;
+        border-left: none;
+        border-right: none;
+        background:none !important;
+        -webkit-print-color-adjust: exact; 
+        print-color-adjust: exact;
+        margin-top: 1px;
+    }
+  
+    .userDetails{
+        margin-left: 2rem;
+    }
+    .tittle span{
+        /* margin-left: 12rem; */
+    }
+    /* @page {     margin: 1px  } */
+}

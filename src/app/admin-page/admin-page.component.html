@@ -1,0 +1,23 @@
+<div>
+  <button (click)="logout()" class="btn btn-primary">Log Out</button>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Contact Number</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of user; index as i;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.mobile}}</td>
+        <td><button (click)="viewUser(i)" class="btn btn-sm btn-primary">View</button></td>
+      </tr>
+    </tbody>
+  </table>

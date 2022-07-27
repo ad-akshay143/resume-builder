@@ -1,0 +1,14 @@
+.footerCol{
+    text-align: center;
+    background-color: gray;
+    margin-left: 6rem;
+    max-width: 21.7cm;
+    border-bottom: 4px solid orange;
+}
+
+@media print {
+    .footerCol{
+        margin-left: -9.5rem; 
+        min-width: 110vw;
+    }
+}

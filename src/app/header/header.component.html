@@ -1,0 +1,103 @@
+<div class="header card ">
+  <div class="container main d-print-inline-flex row">
+    <div class="col-md-7 col-sm-10 tittle">
+      <span [attr.data-after]="fullname" class="name"
+        style="font-family: 'Bahnschrift Condensed'"><b>{{user.name}}</b></span><br>
+      <span id="post" style="padding-top: 0; font-family: 'Bahnschrift Condensed'">{{user.role}}</span>
+
+    </div>
+    <div class="col-md-1 lineImage col-sm-10">
+      <img class="line" src="../../assets/line.png" style="width: 40px;" alt="line">
+    </div>
+    <div class="col-md-4 col-sm-10 details">
+      <!-- <span class="userDetails">
+        <fa-icon [icon]="address"></fa-icon> :&nbsp;<span>{{user.address}}</span>
+      </span> <br>
+      <span class="userDetails">
+        <fa-icon [icon]="linkedin"></fa-icon>&nbsp; :&nbsp;<span>{{user.linkedin}}</span>
+      </span><br>
+      <span class="userDetails">
+        <fa-icon [icon]="email"></fa-icon> :&nbsp;<span>{{user.email}}</span><br>
+      </span>
+      <span class="userDetails">
+        <fa-icon [icon]="mobile"></fa-icon>&nbsp;&nbsp; :&nbsp;<span>{{user.mobile}}</span><br>
+      </span> -->
+      <!-- <fa-icon (click)="edit()" class="add" [icon]="plus"></fa-icon> -->
+      <!-- <span class="userDetails"><fa-icon [icon]="git"></fa-icon>&nbsp; :&nbsp;<span>{{user.git}}</span><br></span> -->
+      <div class="userDetails">
+
+      
+      <div class="d-flex">
+        <span class="icon">
+          <fa-icon [icon]="email"></fa-icon>
+        </span>
+        <span class="colon">:</span>
+        <span>
+          <input #emailData [value]="user.email"  [ngStyle]="{border: emailBorder,background: emailBG}" [disabled]="emailDisabled" name="email"
+            class="form-control form-control-sm" type="text" placeholder="Git">
+          </span>
+        <span class="addEdit">
+          <fa-icon (click)="editEmail()" [ngStyle]="{display: emailDisplay1}" class="add" [icon]="plus"></fa-icon>
+          <fa-icon (click)="saveEmail(emailData.value)" [ngStyle]="{display: emailDisplay}" class="add" [icon]="check"></fa-icon>
+        </span>
+      </div>
+      <div class="d-flex">
+        <span class="icon">
+          <fa-icon [icon]="address"></fa-icon>
+        </span>
+        <span class="colon">:</span>
+        <span ><input #addressData  [ngStyle]="{border: addressBorder,background: addressBG}" [disabled]="addressDisabled" name="address"
+            class="form-control form-control-sm" type="text" placeholder="Git">
+          </span>
+        <span class="addEdit">
+          <fa-icon (click)="editAddress()" [ngStyle]="{display: addressDisplay1}" class="add" [icon]="plus"></fa-icon>
+          <fa-icon (click)="saveAddress(addressData.value)" [ngStyle]="{display: addressDisplay}" class="add" [icon]="check"></fa-icon>
+        </span>
+      </div>
+      <div class="d-flex">
+        <span class="icon">
+          <fa-icon [icon]="linkedin"></fa-icon>
+        </span>
+        <span class="colon">:</span>
+        <span><input #linkedinData  [ngStyle]="{border: linkedinBorder,background: linkedinBG}" [disabled]="linkedinDisabled" name="linkedin"
+            class="form-control form-control-sm" type="text" placeholder="Git"></span>
+        <span class="addEdit">
+          <fa-icon (click)="editLinkedin()" [ngStyle]="{display: linkedinDisplay1}" class="add" [icon]="plus"></fa-icon>
+          <fa-icon (click)="saveLinkedin(linkedinData.value)" [ngStyle]="{display: linkedinDisplay}" class="add" [icon]="check"></fa-icon>
+        </span>
+      </div>
+      <div class="d-flex">
+        <span class="icon">
+          <fa-icon [icon]="mobile"></fa-icon>
+        </span>
+        <span class="colon">:</span>
+        <span><input #mobileData  [ngStyle]="{border: mobileBorder,background: mobileBG}" [disabled]="mobileDisabled" name="mobile"
+            class="form-control form-control-sm" type="text" placeholder="Git"></span>
+        <span class="addEdit">
+          <fa-icon (click)="editMobile()" [ngStyle]="{display: mobileDisplay1}" class="add" [icon]="plus"></fa-icon>
+          <fa-icon (click)="saveMobile(mobileData.value)" [ngStyle]="{display: mobileDisplay}" class="add" [icon]="check"></fa-icon>
+        </span>
+      </div>
+      <div class="d-flex">
+        <span class="icon">
+          <fa-icon [icon]="git"></fa-icon>
+        </span>
+        <span class="colon">:</span>
+        <span><input #gitData  [ngStyle]="{border: gitBorder,background: gitBG}" [disabled]="gitDisabled" name="git"
+            class="form-control form-control-sm" type="text" placeholder="Git"></span>
+        <span class="addEdit">
+          <fa-icon (click)="editGit()" [ngStyle]="{display: gitEdit}" class="add" [icon]="plus"></fa-icon>
+          <fa-icon (click)="saveGit(gitData.value)" [ngStyle]="{display: gitDisplay}" class="add" [icon]="check"></fa-icon>
+        </span>
+      </div>
+    </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+<div class="pic-container">
+  <img src="../../assets/pic.png" alt="Avatar" class="pic" />
+</div>

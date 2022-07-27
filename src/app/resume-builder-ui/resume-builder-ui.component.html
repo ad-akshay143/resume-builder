@@ -1,0 +1,341 @@
+<!-- <div class="logout">
+  <button (click)="logout()" class="btn btn-primary">Log Out</button>
+</div> -->
+<div class="header card needs-validation">
+  <div class="container main d-print-inline-flex row">
+
+    <div class="col-md-7 col-sm-10 tittleHeader">
+
+      <span [attr.data-after]="fullname" class="name"
+        style="font-family: 'Bahnschrift Condensed'"><b>{{cvUserData.name}}</b></span><br>
+      <span id="post" style="padding-top: 0; font-family: 'Bahnschrift Condensed'">{{cvUserData.role}}</span>
+
+    </div>
+
+    <div class="pic-container">
+      <img src="../../assets/blank-profile-picture-973460__340.webp" alt="Avatar" class="pic" />
+    </div>
+
+  </div>
+  <div class="row whole-row">
+
+    <div class="col-md-3 sidebar">
+      <div class="row">
+        <div class=" col-md-12 insideSidebar">
+          <div class="container objective">
+            <div class="form-group col-md-12">
+              <label for="objectives">Objective</label>
+              <textarea name="objectives" [(ngModel)]="cvUserData.objective" class="form-control" id="objectives"
+                rows="6"></textarea>
+
+            </div>
+
+          </div><br>
+          <div>
+            <table class="table table-sm ratings">
+
+              <tbody>
+                <tr *ngFor="let item of cvUserData.techskill; index as i;">
+                  <td><span>{{item.name}}</span> </td>
+                  <td>
+                    <ngb-rating [(rate)]="item.ratings" [max]="5"></ngb-rating>
+                  </td>
+                  <td><fa-icon (click)="addSkill(skill.name,skill.ratings)" class="add" [icon]="delete"></fa-icon></td>
+
+                </tr>
+                <tr>
+                
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 skill">
+          <label for="skill">Skill Name</label>
+          <input name="skill" type="text" [(ngModel)]="skill.name" class="form-control form-control-sm skill-input" id="skill"
+            placeholder="Java Developer">
+        </div>
+        <div class="col-md-4 skill">
+          <label for="skill">Rating</label>
+          <select [(ngModel)]="skill.ratings" class="form-select form-select-sm skill-input" aria-label=".form-select-sm example">
+            <option selected value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col-md-2 skill">
+          <fa-icon (click)="addSkill(skill.name,skill.ratings)" class="add" [icon]="plus"></fa-icon>
+          
+        </div>
+       </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="section-heading ">Personal Details</div>
+        <div class="form-group col-md-6 has-validation">
+          <label for="name">Name</label>
+          <input name="name" id="name" [(ngModel)]="cvUserData.name" type="text" class="form-control"
+            placeholder="John Doe" required>
+            <div class="invalid-feedback">
+              Please choose a username.
+            </div>
+
+        </div>
+        <div class="form-group col-md-6">
+          <label for="role">Role</label>
+          <input name="role" type="tetx" [(ngModel)]="cvUserData.role" class="form-control" id="role"
+            placeholder="Java Developer">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="address">Address</label>
+          <input name="address" id="address" [(ngModel)]="cvUserData.address" type="text" class="form-control"
+            placeholder="42,Texas">
+
+        </div>
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input name="email" type="tetx" [(ngModel)]="cvUserData.email" class="form-control" id="email"
+            placeholder="Java Developer">
+        </div>
+
+
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label for="linkedin">Linkedin</label>
+          <input name="linkedin" type="tetx" [(ngModel)]="cvUserData.linkedIn" class="form-control" id="linkedin"
+            placeholder="Java Developer">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="git">Git</label>
+          <input name="git" type="tetx" [(ngModel)]="cvUserData.git" class="form-control" id="git"
+            placeholder="Java Developer">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="mobile">Mobile</label>
+          <input name="mobile" id="mobile" [(ngModel)]="cvUserData.mobile" type="text" class="form-control"
+            placeholder="99999999">
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="section professionalSummary">
+          
+          <div class="section-heading ">Professional Summary</div>
+          <table class="summaryTable">
+            <thead>
+              <th>Add Details</th>
+              <th></th>
+            </thead>
+            <tbody>
+              <tr>
+
+                <td>
+                  <input [(ngModel)]="professionalSummary.details" name="summ" class="form-control form-control-sm"
+                    type="text" placeholder="Add Summary">
+                </td>
+
+                <td>
+                  <fa-icon (click)="addSummary(professionalSummary.details)" class="add" [icon]="plus"></fa-icon>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="list-group summary" *ngFor="let item of cvUserData.professionalSummaries; index as i;">
+            <li class="list-group-item border-0">
+              <!-- <input [disabled]="summaryFlag"  name="summ" class="form-control form-control-sm"
+              type="text" [value]="item.details"><fa-icon (click)="editSummary()" class="add" [icon]="plus"></fa-icon>
+              <fa-icon [hidden]="summaryButtonFlag" (click)="editSummary()" class="add" [icon]="edit"></fa-icon> -->
+              <fa-icon [icon]="tickBox"></fa-icon> &nbsp; {{item.details}} 
+              <!-- <fa-icon class="add" [icon]="edit"></fa-icon> -->
+              <fa-icon (click)="removeSummary(i)" class="add delete" [icon]="delete"></fa-icon>
+            </li>
+          </ul>
+         
+        </div>
+      </div>
+      <div class="row">
+        <div class="section-heading exp-heading">Experience</div>
+        <table class="table table-sm table-borderless expEntry">
+          <thead>
+            <tr>
+              <th class="started" scope="col">Started Month</th>
+              <th class="started" scope="col">Started Year</th>
+              <th scope="col">Company</th>
+              <th class="totalExp" scope="col">Total Experience</th>
+              <th scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input [(ngModel)]="workExperience.startedMonth" name="startedMonth"
+                  class="form-control form-control-sm" type="text" placeholder="Month">
+              </td>
+              <td><input [(ngModel)]="workExperience.startedYear" name="startedYear"
+                  class="form-control form-control-sm" type="text" placeholder="Year"></td>
+
+              <td><input [(ngModel)]="workExperience.companyName" name="companyName"
+                  class="form-control form-control-sm" type="text" placeholder="Company Name"></td>
+
+              <td><input [(ngModel)]="workExperience.totalExperience" name="totalExperience"
+                  class="form-control form-control-sm" type="text" placeholder="Total Experience"></td>
+
+              <td><input [(ngModel)]="workExperience.details" name="details" class="form-control form-control-sm"
+                  type="text" placeholder="details"></td>
+
+              <td class="iconClass">
+                <fa-icon
+                  (click)="addExperience(workExperience.startedMonth,workExperience.startedYear,workExperience.companyName,workExperience.totalExperience,workExperience.details)"
+                  class="add" [icon]="plus"></fa-icon>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="exp-details container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="timeline" *ngFor="let item of cvUserData.workExperiences; index as i;">
+                <li>
+                  <table class="table we  table-sm table-borderless">
+                    <thead>
+                      <tr>
+                        <th class="started" scope="col">Started On</th>
+                        <th scope="col">Company</th>
+                        <th class="totalExp" scope="col">Total Experience</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row">{{item.startedMonth}} &nbsp; {{item.startedYear}}</td>
+                        <td>{{item.companyName}}</td>
+                        <td>{{item.totalExperience}} Years</td>
+                        <td>{{item.details}}</td>
+                        <td>
+                          <!-- <fa-icon class="add" [icon]="edit"></fa-icon> -->
+                          <fa-icon (click)="removeExp(i)" class="add delete" [icon]="delete"></fa-icon>
+                        </td>
+                      </tr>
+
+
+                    </tbody>
+                  </table>
+
+
+                </li>
+
+              </ul>
+            
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="section-heading">Education</div>
+          <table class="table education table-borderless table-sm">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Degree</th>
+                <th scope="col">Year of Passing</th>
+                <th scope="col">University Name</th>
+                <th scope="col">Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                </td>
+                <td>
+                  <input [(ngModel)]="education.degree" name="degree" class="form-control form-control-sm" type="text"
+                    placeholder="Enter Degree Name">
+                </td>
+                <td><input [(ngModel)]="education.yearOfPassing" name="passingYear" class="form-control form-control-sm"
+                    type="text" placeholder="Year of Passing"></td>
+                <td><input [(ngModel)]="education.universityName" name="university" class="form-control form-control-sm"
+                    type="text" placeholder="University"></td>
+                <td class="iconClass">
+                  <fa-icon (click)="addEducation(education.degree,education.yearOfPassing,education.universityName)"
+                    class="add" [icon]="plus"></fa-icon>
+                </td>
+              </tr>
+              <tr *ngFor="let item of cvUserData.education; index as i;">
+                <td>{{i+1}}</td>
+                <td>{{item.degree}}</td>
+                <td>{{item.yearOfPassing}}</td>
+                <td>{{item.universityName}}</td>
+                <td>
+                  <!-- <fa-icon class="add" [icon]="edit"></fa-icon> -->
+                  <fa-icon (click)="removeEdu(i)" class="add delete" [icon]="delete"></fa-icon>
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row">
+          <div class="section-heading">Certification</div>
+          <table class="table achievement table-borderless table-sm">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Year</th>
+                <th scope="col">Details</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cvUserData.certifications; index as i;">
+                <td>{{i+1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.year}}</td>
+                <td>{{item.details}}</td>
+                <td>
+                  <!-- <fa-icon class="add" [icon]="edit"></fa-icon> -->
+                  <fa-icon (click)="removeCertificate(i)" class="add delete" [icon]="delete"></fa-icon>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                </td>
+                <td><input [(ngModel)]="certificate.name" name="certificationName" class="form-control form-control-sm"
+                    type="text" placeholder="Name">
+                </td>
+                <td><input [(ngModel)]="certificate.year" name="certificationYear" class="form-control form-control-sm"
+                    type="text" placeholder="Year"></td>
+                <td><input [(ngModel)]="certificate.details" name="certificationDetails"
+                    class="form-control form-control-sm" type="text" placeholder="Details"></td>
+                <td class="iconClass">
+                  <fa-icon (click)="addCertification(certificate.name,certificate.year,certificate.details)" class="add"
+                    [icon]="plus"></fa-icon>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="text-center">
+            <button (click)="printPreview()" type="submit" class="btn btn-primary">Preview</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
