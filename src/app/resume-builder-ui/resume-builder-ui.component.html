@@ -301,16 +301,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of cvUserData.certifications; index as i;">
-                <td>{{i+1}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.year}}</td>
-                <td>{{item.details}}</td>
-                <td>
-                  <!-- <fa-icon class="add" [icon]="edit"></fa-icon> -->
-                  <fa-icon (click)="removeCertificate(i)" class="add delete" [icon]="delete"></fa-icon>
-                </td>
-              </tr>
               <tr>
                 <td>
                 </td>
@@ -326,6 +316,17 @@
                     [icon]="plus"></fa-icon>
                 </td>
               </tr>
+              <tr *ngFor="let item of cvUserData.certifications; index as i;">
+                <td>{{i+1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.year}}</td>
+                <td>{{item.details}}</td>
+                <td>
+                  <!-- <fa-icon class="add" [icon]="edit"></fa-icon> -->
+                  <fa-icon (click)="removeCertificate(i)" class="add delete" [icon]="delete"></fa-icon>
+                </td>
+              </tr>
+             
             </tbody>
           </table>
 

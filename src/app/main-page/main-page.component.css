@@ -1,75 +1,24 @@
-body {
-    background: rgb(204, 204, 204);
-}
-.page{
-    width: 65vw;
+.mainRow {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     border-radius: 20px;
-}
-page {
-    background: white;
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 0.5cm;
-    /* width: 70vw; */
-   
+    font-size: smaller;
 }
 
 .header {
-    /* margin: 10px 0 10px 0; */
-    height: 149px;
-    position: absolute;
-    z-index: 10;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 18px;
+    padding: 0;
     border-top: 5px solid orange;
     border-bottom: 1px solid orange;
-    width: 21cm;
-    margin-top: 1rem;
-    margin-left: 1rem;
-    /* background-color: lightgray; */
-
-
-}
-.card{
-        
-    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
-}
-.nameDetails {
-
-    font-size: 10px;
-}
-
-/* .form-control{
-    background: none;
-    border: none;
-} */
-.main {
-    margin: 0;
-    padding: 0;
-}
-
-.pic {
-    width: 119px;
-    height: 119px;
-    border-radius: 150px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-}
-
-.pic-container {
-    display: inline-block;
-    margin-top: 97px;
-    margin-left: 40px;
-    z-index: 12;
-    position: absolute;
+    margin-left: 0px;
 }
 
 .tittleHeader {
-
+    margin-top: 1rem;
     text-align-last: end;
 }
 
-.name {
-    font-size: 3rem;
-}
+
 
 .name b {
     font-size: 2.3rem;
@@ -80,13 +29,11 @@ page {
     display: block;
     font-style: normal;
     font-size: smaller;
-    margin-bottom: -85px;
+    margin-bottom: -35px;
 
 }
 
 .tittleHeader span {
-    margin: 0;
-    padding: 0;
     text-align: right;
 }
 
@@ -94,16 +41,6 @@ page {
     color: gray;
     font-size: 1.2rem;
     margin-bottom: 10px;
-}
-
-.details {
-    margin-left: 2rem;
-    padding: 0;
-    /* margin-top: 0.8rem; */
-    font-size: 0.8rem;
-    align-content: center;
-    align-items: center;
-    /* padding: 10px 20px 10px 10px; */
 }
 
 .icon {
@@ -116,184 +53,40 @@ page {
     margin-top: 0.3rem;
 }
 
-.addEdit {
-    margin-top: 0.5rem;
-}
-
-.userDetails {}
-
-.line {
-    /* margin-left: 2rem; */
-    filter: opacity(0.5) drop-shadow(0 0 0 yellow);
-}
-
-.lineImage {
-    margin: 0;
-    padding: 0;
-    width: 3%;
-}
-
-@media print {
-    .name {
-        font-size: 1.7rem;
-    }
-
-    .name::after {
-        content: "";
-        margin-bottom: -52px;
-    }
-
-    #post {
-        margin-bottom: 1rem;
-        /* margin-left: 4.9rem; */
-        font-size: 1.3rem;
-    }
-
-    .col-sm-10 {
-        margin: 0;
-        float: left;
-        width: 64%;
-
-    }
-
-    .col-md-1 {
-        float: left;
-        width: 1%;
-    }
-
-    .col-md-4 {
-        float: left;
-        font-size: small;
-        width: 33%;
-
-    }
-
-    .tittleHeader {
-        margin-left: 0;
-        margin-top: 0.8rem;
-        /* text-align-last: center; */
-    }
-
-    .row {
-        padding-top: 1rem;
-        float: left;
-        min-width: 100%;
-    }
-
-    .pic-container {
-        margin-bottom: 1rem;
-    }
-
-    .pic {
-        margin-left: 1rem;
-        margin-top: -0.7rem;
-        width: 129px;
-        height: 129px;
-    }
-
-    .header {
-        min-width: 24cm;
-        border-left: none;
-        border-right: none;
-        background: none !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        margin-top: 1px;
-    }
-
-    .userDetails {
-        margin-left: 2rem;
-    }
-
-    .tittle span {
-        /* margin-left: 12rem; */
-    }
-
-    /* @page {     margin: 1px  } */
-}
-
-page[size="A4"] {
-    width: 21cm;
-    height: 29.7cm;
-}
-
-page[size="A4"][layout="portrait"] {
-    width: 29.7cm;
-    height: 21cm;
-}
-
-@media print {
-
-    body,
-    page {
-        margin: 0;
-        box-shadow: 0;
-    }
-
-}
-
-.header {
-    /* margin: 10px 0 10px 0;
-    height: 150px;
-    position: absolute;
-    z-index: 10;
-    border-top: 1px solid orange;
-    border-bottom: 5px solid orange;
-    width: 21cm;
-    background-color: lightgray; */
-
-
-}
-
 .d-flex span {
     margin-top: 0.3rem;
     margin-left: 0.5rem;
 }
 
+.sidebar {
+    padding-top: 1rem;
+    border-right: solid 1px orange;
+    height: 100vh;
+
+}
+
+.main-quote {
+    margin-top: 5rem;
+}
+
+.mainPage {
+    margin-top: 3rem;
+}
+
 .pic {
-    width: 160px;
-    height: 160px;
+    width: 119px;
+    height: 119px;
     border-radius: 150px;
     box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 
 .pic-container {
+    width: 50%;
     display: inline-block;
-    margin-top: 60px;
-    margin-left: 20px;
+    margin-top: 73px;
+    margin-left: 40px;
     z-index: 12;
     position: absolute;
-}
-
-
-
-
-
-.mainPage {
-    min-height: 110vh;
-    padding-bottom: 1rem;
-    /* box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px; */
-    position: absolute;
-    margin-top: 13rem;
-
-    /* margin-left: 14%; */
-}
-.main-row{
-    margin-left: 1rem;
-}
-.sidebar {
-    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.8px; */
-    min-height: 110vh;
-    padding-top: 1rem;
-    border-right: solid 1px orange;
-    margin-top: 13rem;
-
-}
-
-.section {
-   
-    margin-top: 20px;
-    width: 570px;
 }
 
 .section-heading {
@@ -303,60 +96,12 @@ page[size="A4"][layout="portrait"] {
     color: orange;
     border-bottom: 1px solid orange;
 }
-
-.summaryTable {
-    width: 98%;
+.exp{
+    padding: 0;
+    padding-bottom: 1rem;
 }
-
-.education {
-    margin-left: 1rem;
-    width: 15.6cm;
-}
-
-.exp-details {
-    padding-right: 0;
-    margin-left: -2rem;
-    padding-top: 1rem;
-}
-
-.education td {
-    font-size: 12px;
-}
-
-.add {
-    font-size: small;
-    cursor: pointer;
-}
-
-.delete {
-    margin-left: 8px;
-}
-
-.iconClass {
-    font-size: small;
-    padding-top: 10px;
-}
-
-.education tr {
-    font-size: 12px;
-}
-
-.achievement {
-
-    width: 13.6cm;
-}
-
-.achievement td {
-    font-size: 12px;
-}
-
-.achievement tr {
-    font-size: 12px;
-}
-
-/* Add some padding inside the card container */
-.container {
-    padding: 2px 16px;
+.education{
+    margin-left: 0.5rem;
 }
 
 ul.timeline {
@@ -392,122 +137,63 @@ ul.timeline>li:before {
     height: 20px;
     z-index: 400;
 }
-
-
-
-.ratings td {
-    font-size: 12px;
-}
-
-
-.timeline table th,
-td {
-
-    font-size: 12px;
-}
-
-.totalExp,
-.started {
-    width: 18%;
-}
-
-.we {
-    margin-bottom: 0;
-}
-
-
-.professionalSummary {
-    
-    max-width: 14cm;
-    margin: 0;
-}
-
-.summary {
-    font-size: 12px;
-}
-
-.save {
+.achievement{
     margin-left: 1rem;
 }
-.main-quote {
-    font-size: 12px;
+.main-buttons{
+    margin-bottom: 3rem;
+}
+.buttons{
+    margin-top: 2rem;
+    margin-left: 1rem;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
 @media print {
-    .section{
-        width: 100vw;
-    }
 
-    .mainPage {
-        min-height: 100vh;
-        width: 103vw;
-        margin-top: -67rem;
-        margin-left: 10rem;
-    }
+.mainRow{
+    margin-left: 1rem;
+}
 
     .sidebar {
-        
-        padding: 0;
-        min-height: 100vh;
-        max-width: 35%;
+
+
+        max-width: 30%;
     }
+
+    .col-sm-10 {
+        margin: 0;
+        margin-top: 1rem;
+        float: left;
+        width: 59%;
+
+    }
+
+    .col-md-1 {
+        float: left;
+        width: 1%;
+    }
+
+    .col-md-4 {
+        float: left;
+        font-size: small;
+        width: 33%;
+
+    }
+
+
+    .mainPage {
+
+        width: 70%;
+
+    }
+
+
 
     .form-control {
         display: none;
     }
-
-    .ul.timeline {
-        background: #d4d9df !important;
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact;
-
-    }
-
-    .professionalSummary {
-        width: 100vw;
-        margin-bottom: 1rem;
-        /* margin-left: 5rem; */
-    }
-
-    .exp-heading {
-        /* margin-left: 5rem; */
-    }
-
-    .exp-details {
-        margin-top: -2rem;
-        /* margin-left: 3rem; */
-    }
-
-    .expDetailsRow {
-        min-width: 3rem
-    }
-
-    .totalExp {
-        min-width: 24%;
-    }
-
-    .edu {
-        /* margin-left: 5rem; */
-    }
-
-    .achievements {
-        /* margin-left: 5rem; */
-    }
-
-    .save {
-        display: none;
-
-    }
-
-    .main-quote {
-        font-size: 12px;
-    }
-
-    .logout {
-        display: none;
-    }
-
-    .edit {
+    .main-buttons{
         display: none;
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import { DataService } from '../data.service';
 
@@ -12,17 +13,38 @@ export class SidebarComponent implements OnInit {
    tech:any[]=[
     
   ]
-  constructor(private service:DataService) { }
-
+  constructor(private route:Router,private service:DataService) { }
+  loggedIn:boolean=false;
+  adminLoggedIn=false;
+  loggedOut=false;
+  // refreshed=true;
+ 
   ngOnInit(): void {
-    this.user=this.service.getcvUserData()
+    if(this.service.isLoggedIn()||this.service.isAdminLoggedIn()){
+      this.loggedIn=true;
+    }
+    
+   this.service.logStat.asObservable().subscribe((data)=>{
+    this.loggedIn=data
+
+  })
   }
-  rate=0;
-rightQuotes=faQuoteRight
-leftQuote=faQuoteLeft
-// java = 5;
-// javascript=5;
-// angular = 5;
-// html = 5;
-// css = 5;
+  // public refresh(){
+
+  //   window.location.reload()
+  //   this.refreshed=false;
+  // }
+
+  public logout(){
+    localStorage.clear();
+    this.loggedIn=this.service.isLoggedIn();
+   this.service.logStat.asObservable().subscribe((data)=>{
+    this.loggedIn=this.service.isLoggedIn();
+
+  })
+    this.loggedOut=true;
+    this.route.navigate(["LoginPage"]);
+   
+   
+  }
 }

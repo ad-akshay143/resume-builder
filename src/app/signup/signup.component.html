@@ -1,1 +1,40 @@
-<p>signup works!</p>
+<div class="row main-row">
+    <div class=" col-md-8 offset-md-2">
+
+        <div class="row inside-row">
+            <div class="col-md-6">
+               <div class="heading text-center">
+                <h2>Sign Up</h2>
+               </div>
+                    <div class="details">
+                        <form (ngSubmit)="signUp()">
+                          <div class="form-group">
+                            <label for="name">Name</label>
+                            <input [(ngModel)]="user.name" name="name" type="text" class="form-control form-control-sm" id="name" placeholder="John Cena">
+                           
+                          </div>
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Email address</label>
+                              <input [(ngModel)]="user.email" name="email" type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                             
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input [(ngModel)]="user.password" name="password" type="password" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                          <div class="button text-center">
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                          </div>
+                            
+                          </form>  
+                    </div>
+            </div>
+            <div class="col-md-6 info">
+                        <div class="img">
+                            <img class="img-fluid" src="../../assets/6300959.jpg" alt="">
+                        </div>
+            </div>
+        </div>
+
+    </div>
+</div>

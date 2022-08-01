@@ -1,4 +1,12 @@
-.main-row{
-    width: 100vw;
-    margin-left: -16rem;
-}
+
+.elegant {
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 8rem;
+    letter-spacing: 0rem;
+    color: white;
+    text-shadow: -15px 5px 11px #b4bbbb;
+   }
+   h2{
+    font-family: 'Lobster', serif;
+   }

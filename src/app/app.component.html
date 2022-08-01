@@ -1,11 +1,10 @@
 
 <ngx-ui-loader pbColor="orange" fgsColor="orange" text="loading"></ngx-ui-loader>
 <div  class="container page">
-    <!-- <app-header></app-header>
-    <app-sidebar></app-sidebar> -->
-  
-    <!-- <app-resume-builder-ui></app-resume-builder-ui> -->
-    <div ngxUiLoaderBlurred [blur]="blur">
+    <div class="side">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="main" ngxUiLoaderBlurred [blur]="blur">
         <router-outlet></router-outlet>
     </div>
    

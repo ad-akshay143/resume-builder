@@ -1,0 +1,98 @@
+.main-row{
+    width: 70vw;
+    height: 85vh;
+    border-top: 2px solid orange;
+    border-bottom: 2px solid orange;
+    border-radius: 20px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.headings{
+    border-top: 2px solid orange;
+    border-bottom: 2px solid orange;
+    margin-left: 3rem;
+    padding-top: 10px;
+    width: 57%;
+    height: 24%;
+    border-radius: 45px;
+    font-family: 'Mochiy Pop One', serif;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.details{
+    font-family: 'Edu VIC WA NT Beginner', serif;
+    margin-top: 2.5rem;
+}
+.form-control{
+    border-top: 1px solid orange;
+    border-bottom: 1px solid orange;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border-radius: 20px;
+}
+.button{
+    margin-top: 2.5rem;
+}
+
+  
+  /* Scroller styling */
+  
+.ticker-wrapper-v{
+    
+	display: flex;	
+	position: relative;
+	overflow: hidden;
+	
+	height: 36px;
+}
+.ticker-wrapper-v .heading{
+    border: black;
+	background-color: #1c6547;
+	color: #fff;
+	padding: 5px 10px;
+	flex: 0 0 auto;
+	z-index: 1000;
+}
+.ticker-wrapper-v .heading:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	border-left: 20px solid #1c6547;
+	border-top: 17px solid transparent;
+	border-bottom: 15px solid transparent;
+}
+.news-ticker-v{
+    word-wrap: break-word;
+	display: flex;
+	flex-wrap: wrap;
+	margin:0;
+	padding: 0;
+	z-index: 999;
+	
+	animation: tic-v 10s cubic-bezier(1, 0, .5, 0) infinite;
+}
+.news-ticker-v:hover { 
+	animation-play-state: paused; 
+}
+.news-ticker-v li{
+    word-wrap: break-word;
+	display: flex;
+	width: 100%;
+	line-height: 30px;
+	align-items: center;
+	white-space: nowrap;
+	padding-left: 20px;
+}
+.news-ticker-v li span{
+	color: orange;
+	font-weight: bold;
+}
+@keyframes tic-v {
+	0%   {margin-top: 0;}
+	20%  {margin-top: -30px;}
+	40%  {margin-top: -60px;}
+	60%  {margin-top: -90px;}
+	80%  {margin-top: -120px;}
+	100% {margin-top: 0;}
+}

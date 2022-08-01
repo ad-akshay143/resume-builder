@@ -12,13 +12,13 @@ import { NgbCarousel, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
 import { InsertFormComponent } from './insert-form/insert-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginGuardGuard } from './login-guard.guard';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 
 
@@ -44,9 +44,10 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     NgbModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
     NgxUiLoaderModule,
-    NgxUiLoaderHttpModule.forRoot({showForeground:true})
+    NgxUiLoaderRouterModule.forRoot({showForeground:true})
    
   
   ],

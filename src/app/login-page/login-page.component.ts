@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { Subject } from 'rxjs';
 import Swal from 'sweetalert2';
 import { DataService } from '../data.service';
 
@@ -13,6 +14,7 @@ export class LoginPageComponent implements OnInit {
 
   constructor(private service: DataService, private route: Router,private ngxService: NgxUiLoaderService) { }
   loginDetails: any = {};
+  public logStat=new Subject<boolean>();
   user: any = {};
   userCVData: any = {};
   role: string = "";
@@ -34,9 +36,8 @@ export class LoginPageComponent implements OnInit {
 
           if (this.role == "admin" || this.role == "Admin") {
             localStorage.setItem("algodomainAdmin", JSON.stringify(this.user))
+            this.checkForCV();
             this.route.navigate(["AdminPage"]);
-            
-
           }
           else {
             

@@ -21,6 +21,10 @@ export class ResumeBuilderUiComponent implements OnInit {
     techskill: []=[],
   };
   techskill:any[]=[];
+  educations:any []=[];
+    workExperiences: any []=[];
+    professionalSummaries: any []=[];
+  certifications:any[]=[];
   fullname = ""
   result: any;
   flag: boolean = false;
@@ -68,7 +72,7 @@ export class ResumeBuilderUiComponent implements OnInit {
   // methods for adding list fields
   public addEducation(degree: string, passYear: string, university: string) {
     
-    if(this.cvUserData.education.length>=4){
+    if(this.educations.length>=4){
       Swal.fire({
         icon: 'error',
         title: 'Max length Exceeded',
@@ -82,7 +86,9 @@ export class ResumeBuilderUiComponent implements OnInit {
       yearOfPassing: passYear,
       universityName: university
     }
-    this.cvUserData.education.push(education);
+    this.educations.push(education);
+    this.cvUserData.education=this.educations;
+    
   }
 
 
@@ -117,7 +123,7 @@ export class ResumeBuilderUiComponent implements OnInit {
 
 
   public addExperience(month: string, year: string, name: string, exp: string, details: string) {
-    if(this.cvUserData.workExperiences.length>=4){
+    if(this.workExperiences.length>=4){
       Swal.fire({
         icon: 'error',
         title: 'Max length Exceeded',
@@ -134,7 +140,8 @@ else{
       details: details
 
     }
-    this.cvUserData.workExperiences.push(workExperience);
+    this.workExperiences.push(workExperience);
+    this.cvUserData.workExperiences=this.workExperiences;
     console.log(this.cvUserData.workExperiences);
   }
 
@@ -142,7 +149,7 @@ else{
 
   public addSummary(pdetails: any) {
 
-    if(this.cvUserData.professionalSummaries.length>=4){
+    if(this.professionalSummaries.length>=4){
       Swal.fire({
         icon: 'error',
         title: 'Max length Exceeded',
@@ -155,7 +162,8 @@ else{
       let professionalSummary = {
         details: pdetails
       };
-      this.cvUserData.professionalSummaries.push(professionalSummary);  
+      this.professionalSummaries.push(professionalSummary);  
+      this.cvUserData.professionalSummaries=this.professionalSummaries;
     }
    
 
@@ -175,7 +183,7 @@ else{
 
 
   public addCertification(name: string, year: string, details: string) {
-    if(this.cvUserData.certifications.length>=4){
+    if(this.certifications.length>=4){
       Swal.fire({
         icon: 'error',
         title: 'Max length Exceeded',
@@ -190,8 +198,8 @@ else{
       year: year,
       details: details
     };
-    this.cvUserData.certifications.push(certificate);
-    console.log(this.cvUserData);
+    this.certifications.push(certificate);
+    this.cvUserData.certifications=this.certifications;
   }
 
   }

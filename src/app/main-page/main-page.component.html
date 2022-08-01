@@ -1,224 +1,230 @@
 <!-- <div class="logout">
   <button (click)="logout()" class="btn btn-primary">Log Out</button>
 </div> -->
-<div class="page">
+<div class="row mainRow">
 
+  <div class="container main d-print-inline-flex row header">
 
-<div class="header card ">
-  <div class="container main d-print-inline-flex row">
-    
     <div class="col-md-7 col-sm-10 tittleHeader">
-
-      <span [attr.data-after]="fullname" class="name"
-        style="font-family: 'Bahnschrift Condensed'"><b>{{cvUserData.name}}</b></span><br>
+<div class="nameDetails">
+  <span [attr.data-after]="fullname" class="name"
+        style="font-family: 'Bahnschrift Condensed'"><b class="userName">{{cvUserData.name}}</b></span><br>
       <span id="post" style="padding-top: 0; font-family: 'Bahnschrift Condensed'">{{cvUserData.role}}</span>
+
+</div>
+      
 
     </div>
     <div class="col-md-1 lineImage col-sm-10">
       <img class="line" src="../../assets/line.png" style="width: 40px;" alt="line">
     </div>
     <div class="col-md-4 col-sm-10 details">
-      
+
       <div class="userDetails">
-        
 
-      
-      <div class="d-flex">
-        <span class="icon">
-          <fa-icon [icon]="email"></fa-icon>
-        </span>
-        <span class="colon">:</span>
-        <span>
-{{cvUserData.email}}
-        </span>
-      </div>
-      <div class="d-flex">
-        <span class="icon">
-          <fa-icon [icon]="address"></fa-icon>
-        </span>
-        <span class="colon">:</span>
-        <span >{{cvUserData.address}}
+        <div *ngIf="cvUserData.email" class="d-flex">
+          <span class="icon">
+            <fa-icon [icon]="email"></fa-icon>
           </span>
-        
-      </div>
-      <div class="d-flex">
-        <span class="icon">
-          <fa-icon [icon]="linkedin"></fa-icon>
-        </span>
-        <span class="colon">:</span>
-        <span>{{cvUserData.linkedIn}}</span>
-       
-      </div>
-      <div class="d-flex">
-        <span class="icon">
-          <fa-icon [icon]="mobile"></fa-icon>
-        </span>
-        <span class="colon">:</span>
-        <span>{{cvUserData.mobile}}</span>
-        
-      </div>
-      <div class="d-flex">
-        <span class="icon">
-          <fa-icon [icon]="git"></fa-icon>
-        </span>
-        <span class="colon">:</span>
-        <span>{{cvUserData.git}}</span>
-      
-      </div>
-    </div>
-    </div>
-
-
-  </div>
-
-</div>
-
-
-
-<div class="pic-container">
-  <img src="../../assets/blank-profile-picture-973460__340.webp" alt="Avatar" class="pic" />
-</div>
-<div class="row main-row">
-  <div class="col-md-3">
-    <div class="sidebar">
-      <div class="container main-quote">
-      
-       <fa-icon [icon]="leftQuote"></fa-icon><br>{{cvUserData.objective}}<br>
-       <span><fa-icon class="quote-left" [icon]="rightQuotes"></fa-icon></span>
-      </div><br>
-      <div>
-        <table class="table table-sm ratings">
-         
-          <tbody>
-            <tr *ngFor="let item of cvUserData.techskill; index as i;">
-              <td><span>{{item.name}}</span> </td>
-              <td> <ngb-rating [(rate)]="item.ratings" [max]="5"></ngb-rating></td>
-              
-            </tr>
-          
-          </tbody>
-        </table>
-  
-      </div>
-      
-      
-   
-    </div>
-  </div>
-  <div class="col-md-9">
-    <div id="comp1" class="mainPage">
-  
-
-      <div [hidden]="summaries" class="section professionalSummary">
-        <div class="section-heading ">Professional Summary</div>
-        <ul class="list-group summary" *ngFor="let item of cvUserData.professionalSummaries; index as i;">
-          <li class="list-group-item border-0">
-            <fa-icon [icon]="tickBox"></fa-icon> &nbsp; {{item.details}}   
-          </li>
-        </ul>
-       
-      </div>
-    
-      <div [hidden]="workExp" class="section">
-        <div class="section-heading exp-heading">Experience</div>
-        <div class="exp-details container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <ul class="timeline" *ngFor="let item of cvUserData.workExperiences; index as i;">
-                <li>
-                  <table class="table we  table-sm table-borderless">
-                    <thead>
-                      <tr>
-                        <th class="started" scope="col">Started On</th>
-                        <th class="company"  scope="col">Company</th>
-                        <th class="totalExp" scope="col">Total Experience</th>
-                        <th class="expDetailsRow"  scope="col">Details</th>
-                        
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td scope="row">{{item.startedMonth}} &nbsp; {{item.startedYear}}</td>
-                        <td scope="row" class="ml-2">{{item.companyName}}</td>
-                        <td scope="row">{{item.totalExperience}} Years</td>
-                        <td scope="row">{{item.details}}</td>
-                        
-                      </tr>
-    
-    
-                    </tbody>
-                  </table>
-    
-    
-                </li>
-    
-              </ul>
-             
-    
-    
-            </div>
-          </div>
+          <span class="colon">:</span>
+          <span>
+            {{cvUserData.email}}
+          </span>
         </div>
-    
-    
+        <div *ngIf="cvUserData.address" class="d-flex">
+          <span class="icon">
+            <fa-icon [icon]="address"></fa-icon>
+          </span>
+          <span class="colon">:</span>
+          <span>{{cvUserData.address}}
+          </span>
+
+        </div>
+        <div *ngIf="cvUserData.linkedIn" class="d-flex">
+          <span class="icon">
+            <fa-icon [icon]="linkedin"></fa-icon>
+          </span>
+          <span class="colon">:</span>
+          <span>{{cvUserData.linkedIn}}</span>
+
+        </div>
+        <div *ngIf="cvUserData.mobile" class="d-flex">
+          <span class="icon">
+            <fa-icon [icon]="mobile"></fa-icon>
+          </span>
+          <span class="colon">:</span>
+          <span>{{cvUserData.mobile}}</span>
+
+        </div>
+        <div *ngIf="cvUserData.git" class="d-flex">
+          <span class="icon">
+            <fa-icon [icon]="git"></fa-icon>
+          </span>
+          <span class="colon">:</span>
+          <span>{{cvUserData.git}}</span>
+
+        </div>
       </div>
-      <div [hidden]="education" class="section edu">
-        <div class="section-heading">Education</div>
-        <table class="table education table-borderless table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Degree</th>
-              <th scope="col">Year of Passing</th>
-              <th scope="col">University Name</th>
-           
-    
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of cvUserData.education; index as i;">
-              <td>{{i+1}}</td>
-              <td>{{item.degree}}</td>
-              <td>{{item.yearOfPassing}}</td>
-              <td>{{item.universityName}}</td>
-              
-            </tr>
-            
-          </tbody>
-        </table>
-      </div>
-    
-      <div [hidden]="certification" class="section achievements">
-        <div class="section-heading">Certifcations</div>
-        <table class="table achievement table-borderless table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Year</th>
-              <th scope="col">Details</th>
-             
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of cvUserData.certifications; index as i;">
-              <td>{{i+1}}</td>
-              <td>{{item.name}}</td>
-              <td>{{item.year}}</td>
-              <td>{{item.details}}</td>
-              
-            </tr>
-           
-          </tbody>
-        </table>
-      </div>
-      <div class="text-center">
-        <button type="button" (click)="editForm()" class="btn btn-primary edit">Edit</button>
-        <button type="button" (click)="previewForm()" class="btn btn-primary save">Save</button>
+    </div>
+
+
+  </div>
+
+
+
+
+
+  <div class="pic-container">
+    <img src="../../assets/blank-profile-picture-973460__340.webp" alt="Avatar" class="pic" />
+  </div>
+
+  
+  <div class="row main-row">
+    <div class="col-md-3 sidebar">
+        <div *ngIf="cvUserData.objective" class="container main-quote">
+
+          <fa-icon [icon]="leftQuote"></fa-icon><br>{{cvUserData.objective}}<br>
+          <span>
+            <fa-icon class="quote-left" [icon]="rightQuotes"></fa-icon>
+          </span>
+        </div><br>
+        <div>
+          <table class="table table-sm ratings">
+
+            <tbody>
+              <tr *ngFor="let item of cvUserData.techskill; index as i;">
+                <td><span>{{item.name}}</span> </td>
+                <td>
+                  <ngb-rating [(rate)]="item.ratings" [max]="5"></ngb-rating>
+                </td>
+
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+
+
+
+      
+    </div>
+    <div class="col-md-9 mainPage">
+      <div id="comp1" class="">
+
+
+        <div *ngIf="summaries" class="section professionalSummary">
+          <div class="section-heading ">Professional Summary</div>
+          <ul class="list-group summary" *ngFor="let item of cvUserData.professionalSummaries; index as i;">
+            <li class="list-group-item border-0">
+              <fa-icon [icon]="tickBox"></fa-icon> &nbsp; {{item.details}}
+            </li>
+          </ul>
+
+        </div>
+
+        <div *ngIf="workExp" class="section">
+          <div class="section-heading exp-heading">Experience</div>
+          
+            <div class="row exp-details">
+              <div class="col-md-12 exp">
+                <ul class="timeline" *ngFor="let item of cvUserData.workExperiences; index as i;">
+                  <li>
+                    <table class="table we  table-sm table-borderless table-responsive">
+                      <thead>
+                        <tr>
+                          <th class="started" scope="col">Started On</th>
+                          <th class="company" scope="col">Company</th>
+                          <th class="totalExp" scope="col">Total Experience</th>
+                          <th class="expDetailsRow" scope="col">Details</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td scope="row">{{item.startedMonth}} &nbsp; {{item.startedYear}}</td>
+                          <td scope="row" class="ml-2">{{item.companyName}}</td>
+                          <td scope="row">{{item.totalExperience}} Years</td>
+                          <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;" scope="row">{{item.details}}</td>
+
+                        </tr>
+
+
+                      </tbody>
+                    </table>
+
+
+                  </li>
+
+                </ul>
+
+
+
+              </div>
+            </div>
+          
+
+
+        </div>
+        <div *ngIf="education" class="section edu">
+          <div  class="section-heading">Education</div>
+          <div  class="education">
+
+          
+          <table  class="table education table-borderless table-sm table-responsive">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Degree</th>
+                <th scope="col">Year of Passing</th>
+                <th scope="col">University Name</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cvUserData.education; index as i;">
+                <td>{{i+1}}</td>
+                <td>{{item.degree}}</td>
+                <td>{{item.yearOfPassing}}</td>
+                <td>{{item.universityName}}</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        </div>
+
+        <div *ngIf="certification" class="section achievements">
+          <div  class="section-heading">Certifcations</div>
+          <table class="table achievement table-borderless table-sm">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Year</th>
+                <th scope="col">Details</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cvUserData.certifications; index as i;">
+                <td>{{i+1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.year}}</td>
+                <td>{{item.details}}</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<div class="text-center main-buttons">
+  <button type="button" (click)="editForm()" class="btn btn-primary buttons">Edit</button>
+  <button type="button" (click)="previewForm()" class="btn btn-primary buttons">Save</button>
 </div>
-
-

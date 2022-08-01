@@ -4,6 +4,7 @@ import { faGit, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faCheck, faCheckCircle, faGripVertical, faMailBulk, faMapMarked, faMobile, faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import { DataService } from '../data.service';
 import { jsPDF } from "jspdf";
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-main-page',
@@ -12,17 +13,25 @@ import { jsPDF } from "jspdf";
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(private service: DataService, private route: Router) { }
+  constructor(private service: DataService, private route: Router,private ngxService: NgxUiLoaderService) { }
 
   education:boolean=true;
   summaries:boolean=true;
   workExp:boolean=true;
   certification:boolean=true;
+  cvUserData: any = {} 
+  
 
   ngOnInit(): void {
+    this.ngxService.stop();
     this.cvUserData = this.service.getcvUserData();
+    // if(this.cvUserData.professionalSummaries.length<=0){
+    //   console.log("true");
+    // }
+   
+    
     this.checksForCompo();
-    console.log("from mainpage" + this.cvUserData);
+  
 
 
   }
@@ -37,45 +46,64 @@ export class MainPageComponent implements OnInit {
   git = faGit
   check = faCheckCircle
   fullname = ""
-  cvUserData: any = {
-    tech: [] = [
-
-    ]
-  }
-
+ 
   public editForm() {
     this.route.navigate(["EditResume"]);
   }
 
   public checksForCompo(){
 
-    if(this.cvUserData.education!=""){
+    if(this.cvUserData.education==null||this.cvUserData.education.length<=0){
         this.education=false;
         
     }
-    if(this.cvUserData.workExperiences!=""){
+    if(this.cvUserData.workExperiences==null||this.cvUserData.workExperiences.length<=0){
       this.workExp=false;
       console.log("we true");
       
   }
-  if(this.cvUserData.professionalSummaries!=""){
+  if(this.cvUserData.professionalSummaries==null||this.cvUserData.professionalSummaries.length<=0){
     this.summaries=false;
-    console.log("summary true");
+    console.log("summary false");
     
 }
+if(this.cvUserData.certifications==null||this.cvUserData.certifications.length<=0){
+  this.certification=false;
+  console.log("certifications true");
+  
+}
   }
+
+
   public logout(){
     localStorage.clear();
     this.route.navigate(["LoginPage"]);
   }
 
   public previewForm() {
-    // this.service.saveCVData(this.cvUserData).subscribe((res)=>{
-    //   console.log(res);
+    let cvData:any={
+      "address": this.cvUserData.address,
+"certifications": this.cvUserData.certifications,
+"education": this.cvUserData.education,
+"email": this.cvUserData.email,
+"git": this.cvUserData.git,
+"linkedIn": this.cvUserData.linkedIn,
+"mobile": this.cvUserData.mobile,
+"name": this.cvUserData.name,
+"objective": this.cvUserData.objective,
+"professionalSummaries": this.cvUserData.professionalSummaries,
+"role": this.cvUserData.role,
+"techskill": this.cvUserData.techskill,
+"workExperiences": this.cvUserData.workExperiences
 
-    // })
-    console.log("saved");
+    }
+    this.service.updateCVData(cvData).subscribe((res)=>{
+      console.log(res);
 
+    })
+    console.log(this.cvUserData);
     window.print()
+
+    
   }
 }

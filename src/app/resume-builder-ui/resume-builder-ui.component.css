@@ -81,8 +81,9 @@ page {
 }
 .skill{
     font-size: smaller;
-    /* padding: 0; */
     margin: 0;
+    padding: 0;
+    padding-left: 9px;
 }
 .details{
     

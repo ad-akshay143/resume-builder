@@ -7,13 +7,16 @@ import { DataService } from '../data.service';
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.css']
 })
-export class AdminPageComponent implements OnInit {
+export class AdminPageComponent implements OnInit { 
 
+    
   constructor(private service:DataService,private route:Router) { }
   user:any []=[]
 
   ngOnInit(): void {
+
     this.getAllUsers()
+    
 
   }
 
@@ -26,7 +29,7 @@ export class AdminPageComponent implements OnInit {
       });
       
       
-    
+    // window.location.reload()
 
   }
   public logout(){
