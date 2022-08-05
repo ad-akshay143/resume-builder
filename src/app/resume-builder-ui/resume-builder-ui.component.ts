@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faGit, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faCheck, faCheckCircle, faCoffee, faCross, faEdit, faGripVertical, faMailBulk, faMapMarked, faMinusCircle, faMobile, faPlusCircle, faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +12,9 @@ import { DataService } from '../data.service';
   templateUrl: './resume-builder-ui.component.html',
   styleUrls: ['./resume-builder-ui.component.css']
 })
+
 export class ResumeBuilderUiComponent implements OnInit {
+  @Output() newItemEvent = new EventEmitter<any>();
 
   constructor(private service: DataService, private route: Router) { }
   cvUserData: any = {
@@ -39,6 +43,8 @@ export class ResumeBuilderUiComponent implements OnInit {
   summaryFlag=true;
   summaryButtonFlag=true;
 
+  
+
   ngOnInit(): void {
   
     console.log("cv data "+this.service.isCVData());
@@ -46,10 +52,15 @@ export class ResumeBuilderUiComponent implements OnInit {
     if (this.service.isCVData()) {
       this.cvUserData = this.service.getcvUserData()
     }
-
-    console.log(this.cvUserData);
+   
+    console.log("image name",this.cvUserData.image);
 
   };
+  //image_name
+  // imageName=this.cvUserData.image;
+  imageName=<string>this.cvUserData.image;
+  file=new FormControl('')
+  file_data:any=''
 
 
   // all icons 
@@ -67,6 +78,54 @@ export class ResumeBuilderUiComponent implements OnInit {
   pipe = faGripVertical
   git = faGit
   check = faCheckCircle
+
+  //image_related_methods&variables
+
+ 
+  // path="dummy-profile-pic.png";
+ public fileChange(event:any) {
+  if (event.target.files) {
+    var file = new FileReader();
+    file.readAsDataURL(event.target.files[0]);
+    file.onload = (image: any) => {
+     this.cvUserData.image = image.target.result;
+      console.log("form onload 92",this.imageName);
+      localStorage.setItem("image",this.cvUserData.image);
+    }
+  }
+    const fileList: FileList = event.target.files;
+    //check whether file is selected or not
+    if (fileList.length > 0) {
+
+        const file = fileList[0];
+        //get file information such as name, size and type
+        console.log('finfo',file.name,file.size,file.type);
+        //max file size is 4 mb
+        if((file.size/1048576)<=1)
+        {
+          let formData = new FormData();
+          let info={id:2,name:'raja'}
+          formData.append('file', file, file.name);
+          formData.append('id','2');
+          formData.append('tz',new Date().toISOString())
+          formData.append('update','2')
+          formData.append('info',JSON.stringify(info))
+          this.file_data=formData
+          this.service.changeData(this.file_data);  //invoke new Data
+       
+          
+        
+       
+        }else{
+          //this.snackBar.open('File size exceeds 4 MB. Please choose less than 4 MB','',{duration: 2000});
+        }
+        
+        
+    }
+    
+
+  }
+
 
 
   // methods for adding list fields

@@ -23,6 +23,9 @@ export class SidebarComponent implements OnInit {
     if(this.service.isLoggedIn()||this.service.isAdminLoggedIn()){
       this.loggedIn=true;
     }
+    if(this.service.isAdminLoggedIn()){
+        this.adminLoggedIn=true;
+    }
     
    this.service.logStat.asObservable().subscribe((data)=>{
     this.loggedIn=data
@@ -43,6 +46,7 @@ export class SidebarComponent implements OnInit {
 
   })
     this.loggedOut=true;
+    this.adminLoggedIn=false;
     this.route.navigate(["LoginPage"]);
    
    

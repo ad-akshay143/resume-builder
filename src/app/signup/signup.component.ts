@@ -32,7 +32,8 @@ export class SignupComponent implements OnInit {
         let user:any={
           "name":this.user.name,
           "email":this.user.email,
-          "role":"Developer"
+          "role":"Developer",
+          "image":"../../images/dummy-profile-pic.png"
         }
         this.service.saveCVData(user).subscribe((res)=>{
           console.log("from sigup 38 "+res);

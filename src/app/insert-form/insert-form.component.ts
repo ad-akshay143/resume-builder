@@ -19,7 +19,7 @@ export class InsertFormComponent implements OnInit {
 
   file=new FormControl('')
   file_data:any=''
-
+  path="dummy-profile-pic.png";
  public fileChange(event:any) {
     
     const fileList: FileList = event.target.files;
@@ -55,7 +55,9 @@ export class InsertFormComponent implements OnInit {
       console.log("inside upload");
       this.service.uploadFile(this.file_data)
       .subscribe(res => {
-      console.log("res "+res);
+      this.path="image"+res;
+      console.log(this.path);
+      
       
       }, (err) => {
       console.log(err);

@@ -13,7 +13,10 @@
     </div>
 
     <div class="pic-container">
-      <img src="../../assets/blank-profile-picture-973460__340.webp" alt="Avatar" class="pic" />
+      <img (click)="selectImage.click()" [src]="cvUserData.image" alt="Avatar" class="pic" />
+      <input [formControl]="file" 
+      (change)="fileChange($event)" 
+      type="file" style="display: none;" #selectImage>
     </div>
 
   </div>

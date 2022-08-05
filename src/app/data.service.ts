@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -119,5 +119,11 @@ console.log("setting user");
      return this.ser.post("http://localhost/firstPHP/insertImage.php",file_data)
      
     }
+    data = new BehaviorSubject('default data');
+  data$ = this.data.asObservable();
+
+  changeData(data: any) {
+    this.data.next(data)
+  }
  
 }

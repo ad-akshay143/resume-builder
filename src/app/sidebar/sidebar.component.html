@@ -4,8 +4,8 @@
         <button type="button" *ngIf="!loggedIn" routerLink='LoginPage' class="btn">Log In</button><br>
         <button type="button" *ngIf="!loggedIn" routerLink="SignUp" class="btn">Sign Up</button><br>
         <a type="button" routerLink="" class="btn">Home</a><br>
-        <button type="button" routerLink="EditResume" *ngIf="loggedIn" class="btn">Edit Resume</button><br>
-        <!-- <button  (click)="refresh()" type="button" class="btn">Refresh</button><br> -->
+        <button type="button" routerLink="EditResume" *ngIf="loggedIn" class="btn">Add Resume</button><br>
+        <button *ngIf="adminLoggedIn" routerLink="AdminPage" type="button" class="btn">View Users</button><br>
         <button type="button" *ngIf="loggedIn" (click)="logout()" class="btn">Logout</button><br>
        
     </div>
