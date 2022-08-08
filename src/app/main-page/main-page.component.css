@@ -1,12 +1,12 @@
 .mainRow {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    border-radius: 20px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 20px; */
     font-size: smaller;
 }
 
 .header {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    border-radius: 18px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 18px; */
     padding: 0;
     border-top: 5px solid orange;
     border-bottom: 1px solid orange;
@@ -59,21 +59,44 @@
 }
 
 .sidebar {
-    padding-top: 1rem;
+    padding-top: 3rem;
     border-right: solid 1px orange;
     height: 100vh;
 
 }
 
 .main-quote {
-    margin-top: 5rem;
+    padding: 1rem;
+    margin-top: 3rem;
+}
+.quote-left{
+    margin-left: 8rem;
 }
 
+/*
+middle border of skill section
+*/
+
+.allRatings{
+    /* margin-top: 3rem; */
+    width: 100%;
+    position: relative;
+}
+
+.allRatings::before{
+    content: '';
+    position: absolute;
+    border-bottom: 1px orange solid;
+    width: 50%;
+    z-index:0;
+    margin-left: 2rem;
+}
 .mainPage {
     margin-top: 3rem;
 }
 
 .pic {
+    margin-left: -1rem;
     width: 119px;
     height: 119px;
     border-radius: 150px;
@@ -152,13 +175,22 @@ ul.timeline>li:before {
 @media print {
 
 .mainRow{
+    width: 102.5vw;
+    /* margin-left: 1rem; */
+}
+.pic{
     margin-left: 1rem;
 }
-
+.main-quote {
+    margin-left: 0.5rem;
+}
     .sidebar {
-
-
+        padding-right: 1rem;
+        height: 80vh;
         max-width: 30%;
+    }
+    .allRatings{
+        margin-left: 1rem;
     }
 
     .col-sm-10 {

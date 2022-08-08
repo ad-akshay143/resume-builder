@@ -1,15 +1,15 @@
 .footerCol{
     text-align: center;
     background-color: gray;
-    margin-left: 4.5rem;
-    max-width: 21.7cm;
+    /* margin-left: 4.5rem; */
+    /* max-width: 21.7cm; */
     border-bottom: 4px solid orange;
     border-radius: 20px;
 }
 
 @media print {
     .footerCol{
-        margin-left: -9rem;
+        /* margin-left: -9rem; */
         min-width: 113.5vw;
         border-radius: 20px;
     }

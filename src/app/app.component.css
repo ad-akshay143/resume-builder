@@ -1,20 +1,13 @@
 .page {
-    /* margin-left: 200px; */
-    margin-top: 1rem;
-    /* padding: 0; */
+   /* border: 1px orange dotted; */
     border-radius: 15px;
     padding-top: 1rem;
-   width: 21.6cm;
+    width: 60vw;
     /* height: 29.7cm; */
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
 }
-.main{
-    /* margin-top: -19rem; */
-    /* position: absolute; */
-}
-.footer{
-    margin-left: 10rem;
-}
+
+
 .side{
    position: fixed;
     margin-top: 8rem;
@@ -27,10 +20,11 @@
         /* margin-right: 20px; */
         box-shadow: none;
         margin: 0;
-        margin-left: -10px;
+        /* margin-left: -10px; */
+        width: 100vw;
     }
     .side{
         display: none;
     }
-    /* @page {     margin: 0 !important; } */
+    
 }

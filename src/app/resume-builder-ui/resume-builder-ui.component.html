@@ -34,26 +34,7 @@
             </div>
 
           </div><br>
-          <div>
-            <table class="table table-sm ratings">
-
-              <tbody>
-                <tr *ngFor="let item of cvUserData.techskill; index as i;">
-                  <td><span>{{item.name}}</span> </td>
-                  <td>
-                    <ngb-rating [(rate)]="item.ratings" [max]="5"></ngb-rating>
-                  </td>
-                  <td><fa-icon (click)="addSkill(skill.name,skill.ratings)" class="add" [icon]="delete"></fa-icon></td>
-
-                </tr>
-                <tr>
-                
-                </tr>
-
-              </tbody>
-            </table>
-
-          </div>
+         
         </div>
       </div>
       <div class="row">
@@ -76,7 +57,27 @@
           <fa-icon (click)="addSkill(skill.name,skill.ratings)" class="add" [icon]="plus"></fa-icon>
           
         </div>
-       </div>
+       </div><br>
+       <div>
+        <table class="table table-sm ratings">
+
+          <tbody>
+            <tr *ngFor="let item of cvUserData.techskill; index as i;">
+              <td><span>{{item.name}}</span> </td>
+              <td>
+                <ngb-rating [(rate)]="item.ratings" [max]="5"></ngb-rating>
+              </td>
+              <td><fa-icon (click)="removeSkill(i)" class="add" [icon]="delete"></fa-icon></td>
+
+            </tr>
+            <tr>
+            
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
     </div>
     <div class="col-md-9">
       <div class="row">
@@ -134,7 +135,7 @@
       <div class="row">
         <div class="section professionalSummary">
           
-          <div class="section-heading ">Professional Summary</div>
+          <div class="section-heading ">Professional Summary <fa-icon (click)="addSummary(professionalSummary.details)" class="add add-pro" [icon]="plus"></fa-icon></div>
           <table class="summaryTable">
             <thead>
               <th>Add Details</th>
@@ -147,28 +148,26 @@
                   <input [(ngModel)]="professionalSummary.details" name="summ" class="form-control form-control-sm"
                     type="text" placeholder="Add Summary">
                 </td>
-
-                <td>
-                  <fa-icon (click)="addSummary(professionalSummary.details)" class="add" [icon]="plus"></fa-icon>
-                </td>
               </tr>
             </tbody>
           </table>
           <ul class="list-group summary" *ngFor="let item of cvUserData.professionalSummaries; index as i;">
             <li class="list-group-item border-0">
-              <!-- <input [disabled]="summaryFlag"  name="summ" class="form-control form-control-sm"
-              type="text" [value]="item.details"><fa-icon (click)="editSummary()" class="add" [icon]="plus"></fa-icon>
-              <fa-icon [hidden]="summaryButtonFlag" (click)="editSummary()" class="add" [icon]="edit"></fa-icon> -->
-              <fa-icon [icon]="tickBox"></fa-icon> &nbsp; {{item.details}} 
-              <!-- <fa-icon class="add" [icon]="edit"></fa-icon> -->
-              <fa-icon (click)="removeSummary(i)" class="add delete" [icon]="delete"></fa-icon>
+
+              <div class="row summary-rows">
+                <div class="col-md-11 summaryDetails"> <fa-icon [icon]="tickBox"></fa-icon>&nbsp;<span>{{item.details}} </span></div>
+                <div class="col-md-1"><fa-icon (click)="removeSummary(i)" class="add delete" [icon]="delete"></fa-icon></div>
+              </div>
+
             </li>
           </ul>
          
         </div>
       </div>
       <div class="row">
-        <div class="section-heading exp-heading">Experience</div>
+        <div class="section-heading exp-heading">Experience  <fa-icon
+          (click)="addExperience(workExperience.startedMonth,workExperience.startedYear,workExperience.companyName,workExperience.totalExperience,workExperience.details)"
+          class="add add-exp" [icon]="plus"></fa-icon></div>
         <table class="table table-sm table-borderless expEntry">
           <thead>
             <tr>
@@ -176,7 +175,7 @@
               <th class="started" scope="col">Started Year</th>
               <th scope="col">Company</th>
               <th class="totalExp" scope="col">Total Experience</th>
-              <th scope="col">Details</th>
+              <th  scope="col">Details</th>
             </tr>
           </thead>
           <tbody>
@@ -197,15 +196,13 @@
                   type="text" placeholder="details"></td>
 
               <td class="iconClass">
-                <fa-icon
-                  (click)="addExperience(workExperience.startedMonth,workExperience.startedYear,workExperience.companyName,workExperience.totalExperience,workExperience.details)"
-                  class="add" [icon]="plus"></fa-icon>
+               
               </td>
             </tr>
           </tbody>
         </table>
         <div class="exp-details container-fluid">
-          <div class="row">
+          <div class="row exp-table">
             <div class="col-md-12">
               <ul class="timeline" *ngFor="let item of cvUserData.workExperiences; index as i;">
                 <li>
@@ -224,9 +221,8 @@
                         <td scope="row">{{item.startedMonth}} &nbsp; {{item.startedYear}}</td>
                         <td>{{item.companyName}}</td>
                         <td>{{item.totalExperience}} Years</td>
-                        <td>{{item.details}}</td>
+                        <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">{{item.details}}</td>
                         <td>
-                          <!-- <fa-icon class="add" [icon]="edit"></fa-icon> -->
                           <fa-icon (click)="removeExp(i)" class="add delete" [icon]="delete"></fa-icon>
                         </td>
                       </tr>
@@ -246,8 +242,9 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="section-heading">Education</div>
+        <div class="row row-eduDetails">
+          <div class="section-heading">Education  <fa-icon (click)="addEducation(education.degree,education.yearOfPassing,education.universityName)"
+            class="add add-edu" [icon]="plus"></fa-icon></div>
           <table class="table education table-borderless table-sm">
             <thead>
               <tr>
@@ -272,8 +269,7 @@
                 <td><input [(ngModel)]="education.universityName" name="university" class="form-control form-control-sm"
                     type="text" placeholder="University"></td>
                 <td class="iconClass">
-                  <fa-icon (click)="addEducation(education.degree,education.yearOfPassing,education.universityName)"
-                    class="add" [icon]="plus"></fa-icon>
+                 
                 </td>
               </tr>
               <tr *ngFor="let item of cvUserData.education; index as i;">
@@ -291,8 +287,9 @@
           </table>
         </div>
 
-        <div class="row">
-          <div class="section-heading">Certification</div>
+        <div class="row row-cert">
+          <div class="section-heading certificate">Certification <fa-icon (click)="addCertification(certificate.name,certificate.year,certificate.details)" class="add add-cert"
+            [icon]="plus"></fa-icon></div>
           <table class="table achievement table-borderless table-sm">
             <thead>
               <tr>
@@ -315,8 +312,7 @@
                 <td><input [(ngModel)]="certificate.details" name="certificationDetails"
                     class="form-control form-control-sm" type="text" placeholder="Details"></td>
                 <td class="iconClass">
-                  <fa-icon (click)="addCertification(certificate.name,certificate.year,certificate.details)" class="add"
-                    [icon]="plus"></fa-icon>
+                  
                 </td>
               </tr>
               <tr *ngFor="let item of cvUserData.certifications; index as i;">

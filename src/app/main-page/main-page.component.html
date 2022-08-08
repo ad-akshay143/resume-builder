@@ -81,14 +81,16 @@
   
   <div class="row main-row">
     <div class="col-md-3 sidebar">
-        <div *ngIf="cvUserData.objective" class="container main-quote">
+        <div *ngIf="cvUserData.objective" class="main-quote">
 
-          <fa-icon [icon]="leftQuote"></fa-icon><br>{{cvUserData.objective}}<br>
-          <span>
-            <fa-icon class="quote-left" [icon]="rightQuotes"></fa-icon>
-          </span>
+          <fa-icon [icon]="leftQuote"></fa-icon>
+          <br><br>
+          {{cvUserData.objective}}
+          <br><br>
+          <fa-icon class="quote-left" [icon]="rightQuotes"></fa-icon>
+         
         </div><br>
-        <div>
+        <div class="allRatings">
           <table class="table table-sm ratings">
 
             <tbody>

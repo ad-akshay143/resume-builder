@@ -17,7 +17,7 @@ page {
     border-top:5px solid orange;
     border-bottom: 1px solid orange;
    width: 21cm;
-    /* background-color: lightgray; */
+    
 
 
 }
@@ -109,7 +109,7 @@ page {
     margin-left: 0.5rem;
 }
 .line{
-    /* margin-left: 2rem; */
+    
     filter: opacity(0.5) drop-shadow(0 0 0 yellow) ;
 }
 .lineImage{
@@ -183,21 +183,9 @@ page {
     .userDetails{
         margin-left: 2rem;
     }
-    .tittle span{
-        /* margin-left: 12rem; */
-    }
-    /* @page {     margin: 1px  } */
+ 
 }
 
-page[size="A4"] {
-    width: 21cm;
-    height: 29.7cm;
-}
-
-page[size="A4"][layout="portrait"] {
-    width: 29.7cm;
-    height: 21cm;
-}
 
 @media print {
     body,
@@ -258,23 +246,48 @@ page[size="A4"][layout="portrait"] {
 
 .section {
     margin-top: 20px;
-    width: 570px;
+    /* width: 570px; */
 }
 
 .section-heading {
     margin-top: 1.5rem;
-    width: 16 cm;
+    /* width: 16 cm; */
+    /* width: 48vw; */
     font-size: 20px;
     font-weight: bold;
     color: orange; 
     border-bottom: 1px solid orange;
 }
+.add-pro{
+    margin-left: 22rem;
+}
+.add-exp{
+    margin-left: 29rem;
+}
+.add-edu{
+    margin-left: 29.5rem;
+}
+.add-cert{
+    margin-left: 28rem;
+}
 .summaryTable{
-    min-width: 39rem;
+    min-width: 37rem;
+}
+
+.summary-rows{
+    width: 46vw;
+    margin: 0;
+}
+.summaryDetails{
+    padding: 0;
+}
+
+.row-eduDetails{
+    min-width: 49.5vw;
 }
 .education{
 
-min-width: 39rem;
+min-width: 37rem;
 }
 .education td{
     font-size: small;
@@ -294,10 +307,9 @@ min-width: 39rem;
 .education tr{
     font-size: 12px;
 }
-.achievement{
-
-    min-width: 39rem;
-    }
+.certificate{
+    width: 47.5vw;
+}
     .achievement td{
         font-size: small;
     }
@@ -305,10 +317,10 @@ min-width: 39rem;
     .achievement tr{
         font-size: 12px;
     }
-/* Add some padding inside the card container */
-.container {
-    /* padding: 2px 16px; */
-}
+    .row-cert{
+        min-width: 51vw;
+    }
+
 ul.timeline {
     list-style-type: none;
     position: relative;
@@ -363,9 +375,12 @@ ul.timeline > li:before {
     .expEntry th,td{
         font-size: 10px;
     }
+    .exp-table{
+        width: 50vw;
+    }
 
 .professionalSummary{
-    max-width: 14cm;
+    /* max-width: 14cm; */
     margin: 0;
 }
 .summary{
